@@ -1,0 +1,25 @@
+{
+    "extends": "@vue/tsconfig/tsconfig.dom.json",
+    "compilerOptions": {
+        "module": "es2022",
+        "moduleResolution": "Node",
+        "strict": false,
+        "allowJs": true,
+        "noImplicitAny": false,
+        "types": [
+            "vite/client"
+        ],
+        "paths": {
+            "@/*": [
+                "resources/js/*"
+            ]
+        },
+        "baseUrl": "."
+    },
+    "include": [
+        "resources/**/*.js",
+        "resources/**/*.ts",
+        "resources/**/*.d.ts",
+        "resources/**/*.vue"
+    ]
+}
