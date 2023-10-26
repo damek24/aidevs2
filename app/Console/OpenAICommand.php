@@ -26,7 +26,7 @@ class OpenAICommand extends Command
         return json_decode($response->getBody()->getContents(), associative: true, flags: JSON_THROW_ON_ERROR);
     }
 
-    protected function sendAnswer(string  $token, string $answer): array
+    protected function sendAnswer(string  $token, string|array|object $answer): array
     {
         $client = new Client();
         $response = $client->post($this->base_url . '/answer/' . $token, [
