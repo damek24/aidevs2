@@ -17,6 +17,15 @@ class OpenAICommand extends Command
         return json_decode($response->getBody()->getContents(), associative: true, flags: JSON_THROW_ON_ERROR);
     }
 
+    protected function sendTaskMessage(string $field, string $message, string $token)
+    {
+        $client = new Client();
+        $response = $client->post($this->base_url . '/task/' . $token, [
+            'form_params' => [$field => $message]
+        ]);
+        return json_decode($response->getBody()->getContents(), associative: true, flags: JSON_THROW_ON_ERROR);
+    }
+
     protected function getApp(string $appName, string $key): array
     {
         $client = new Client();
