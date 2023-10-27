@@ -34,7 +34,7 @@ class Lesson5 extends OpenAICommand
         $token = $this->getApp('liar', $key)['token'];
         \Laravel\Prompts\info('token: '. $token);
         $task = $this->getTask($token);
-        $questionContent = 'what is capital of germany?';
+        $questionContent = 'is the pineapple pizza a good choice?';
         \Laravel\Prompts\info(sprintf('question is: %s', $questionContent));
         $question = $this->sendTaskMessage('question', $questionContent, $token);
         \Laravel\Prompts\info(sprintf('api answer is %s', $question['answer']));

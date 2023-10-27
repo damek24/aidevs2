@@ -21,7 +21,8 @@ class OpenAICommand extends Command
     {
         $client = new Client();
         $response = $client->post($this->base_url . '/task/' . $token, [
-            'form_params' => [$field => $message]
+            'form_params' => [$field => $message],
+            'timeout' => 20,
         ]);
         return json_decode($response->getBody()->getContents(), associative: true, flags: JSON_THROW_ON_ERROR);
     }
