@@ -12,7 +12,7 @@ enum GptMode
         return match ($this)
         {
             self::gpt3_5 => 'gpt-3.5-turbo',
-            self::gpt4 => 'gpt4',
+            self::gpt4 => 'gpt-4',
         };
     }
 }
