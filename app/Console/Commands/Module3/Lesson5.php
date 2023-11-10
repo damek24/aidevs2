@@ -40,8 +40,9 @@ class Lesson5 extends OpenAICommand
         $question = $task['question'];
         \Laravel\Prompts\info($question);
         ['imie' => $name, 'nazwisko' => $last_name] = json_decode((new GetName($question))->sendMessage()->content, associative:  true);
-        if($name === "Krysia") {
-            $name = "Krystyna";
+        $replacements = ["Krysia" => "Krystyna"];
+        if(in_array($name, array_keys($replacements))) {
+            $name = $replacements[$name];
         }
         dump([$name, $last_name]);
         /** @var Person $model */
