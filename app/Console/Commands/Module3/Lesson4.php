@@ -7,6 +7,8 @@ use App\Helpers\QdrantClient;
 use App\Models\Link;
 use Illuminate\Console\Command;
 
+use Illuminate\Support\Facades\Artisan;
+
 use function Laravel\Prompts\table;
 use function Laravel\Prompts\text;
 
@@ -31,6 +33,7 @@ class Lesson4 extends OpenAICommand
      */
     public function handle()
     {
+        //before this run Artisan::call('app:parse-newsletter-json');
         $key = text('api_key', default: config('openai.key') ?? '', required: true);
         $token = $this->getApp('search', $key)['token'];
         \Laravel\Prompts\info('token: '. $token);
