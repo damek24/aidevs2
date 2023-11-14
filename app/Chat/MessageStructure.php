@@ -27,8 +27,8 @@ class MessageStructure
         return $messages;
     }
 
-    public function sendMessage(GptMode $mode = GptMode::gpt3_5)
+    public function sendMessage(GptMode $mode = GptMode::gpt3_5, bool $force_json = false)
     {
-        return new BaseChat($this->messages(), $mode);
+        return new BaseChat($this->messages(), $mode, $force_json);
     }
 }

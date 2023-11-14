@@ -35,7 +35,6 @@ class Lesson1 extends OpenAICommand
      */
     public function handle()
     {
-        //before this run Artisan::call('app:parse-newsletter-json');
         $key = text('api_key', default: config('openai.key') ?? '', required: true);
         $token = $this->getApp('knowledge', $key)['token'];
         \Laravel\Prompts\info('token: '. $token);
